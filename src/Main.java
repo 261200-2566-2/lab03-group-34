@@ -1,21 +1,52 @@
 public class Main {
     public static void main(String[] args) {
-        Sword LongSword = new Sword(100.00);
-        Shield HeavyShield = new Shield(200.00);
-        Fighter Knack = new Fighter("Knack", LongSword, HeavyShield);
-        displayStatus(Knack);
+        // Create a sword and a shield
+        Sword LongSword = new Sword(100);
+        Shield HeavyShield = new Shield(50);
 
-        Sword ShortSword = new Sword(50.00);
-        Shield LightShield = new Shield(100);
-        Fighter Natan = new Fighter("Natan", ShortSword, LightShield);
-        displayStatus(Natan);
+        // Create an RPG character with initial level and equipment
+        Fighter Knack = new Fighter("Knack", LongSword, HeavyShield);
+
+        // Display initial character stats
+        displayCharacterStats(Knack);
+
+        // Simulate a level up
+        Knack.lvlUP();
+        System.out.println("\nLevel up!");
+        displayCharacterStats(Knack);
+
+        // Simulate equipping a new sword and shield
+        Sword newSword = new Sword(500);
+        Shield newShield = new Shield(1000);
+
+        Knack.setEquipSword(newSword);
+        Knack.setEquipShield(newShield);
+
+        System.out.println("\nEquipped new sword and shield:");
+        displayCharacterStats(Knack);
+
+        // Simulate taking damage
+        int damageTaken = 2000;
+        Knack.takeDMG(damageTaken);
+
+        System.out.println("\nAfter taking damage:");
+        displayCharacterStats(Knack);
     }
-    public static void displayStatus(Fighter fighter){
-        System.out.println("-----Figther Status-----");
-        System.out.println("Name: " + fighter.getName());
-        System.out.println("Level: " + fighter.getLevel());
-        System.out.println("HP: " + fighter.getCurrentHP() + "/" + fighter.getMaxHP());
-        System.out.println("Mana: " + fighter.getCurrentMana() + "/" + fighter.getMaxMana());
-        System.out.println("Speed: " + fighter.getCurrentSpeed());
+
+    private static void displayCharacterStats(Fighter character) {
+        System.out.println("\nCharacter Stats:");
+        System.out.println("Max HP: " + character.getMaxHP());
+        System.out.println("Max Mana: " + character.getMaxMana());
+        System.out.println("Current HP: " + character.getCurrentHP());
+        System.out.println("Current Mana: " + character.getCurrentMana());
+        System.out.println("Current Run Speed: " + character.getCurrentSpeed());
+        System.out.println("--------------------------------------------------");
+        System.out.println("Equipment Stats:");
+        System.out.println("SwordDMG: " + character.equipSword.swordDMG);
+        System.out.println("ShieldDEF: " + character.equipShield.shieldDEF);
+        System.out.println("--------------------------------------------------");
+        if(character.getCurrentHP() == 0){
+            System.out.println("You're dead ");
+        }
     }
 }
