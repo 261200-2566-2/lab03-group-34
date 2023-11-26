@@ -45,9 +45,6 @@ public class Fighter {
     public void updateStats(){
         currentSpeed = baseSpeed - equipSword.SpeedDecrease() - equipShield.SpeedDecrease();
     }
-    public String getName(){
-        return name;
-    }
     public double getMaxHP(){
         return maxHP;
     }
@@ -62,9 +59,6 @@ public class Fighter {
     }
     public double getCurrentSpeed(){
         return currentSpeed;
-    }
-    public int getLevel(){
-        return lvl;
     }
 }
 

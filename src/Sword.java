@@ -7,9 +7,6 @@ public class Sword {
         this.baseDMG = baseDMG;
         swordDMG = baseDMG;
     }
-    public void swordStats(){
-        System.out.println("Level: " + lvl + "DMG: " + swordDMG);
-    }
     public int SpeedDecrease(){
         return (int)(10 * (0.1 + 0.04 * lvl));
     }
