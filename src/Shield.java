@@ -6,9 +6,6 @@ public class Shield {
         this.baseDEF = baseDEF;
         shieldDEF = baseDEF;
     }
-    public void shieldStats(){
-        System.out.println("Level: " + lvl + "DEF: " + shieldDEF);
-    }
     public int SpeedDecrease(){
         return (int)(10 * (0.1 + 0.08 * lvl));
     }

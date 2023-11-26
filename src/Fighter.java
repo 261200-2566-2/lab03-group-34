@@ -1,17 +1,17 @@
 public class Fighter {
     String name;
-    private int lvl;
+    private int lvl = 1;
     private double maxHP = 100;
     private double currentHP;
     private double maxMana = 50;
     private double currentMana;
     private double baseSpeed = 20;
-    private double Speed;
     private double currentSpeed;
     Sword equipSword;
     Shield equipShield;
 
     public Fighter(String name, Sword sword, Shield shield){
+        this.name = name;
         this.equipSword = sword;
         this.equipShield = shield;
         initializeStats();
@@ -45,9 +45,6 @@ public class Fighter {
     public void updateStats(){
         currentSpeed = baseSpeed - equipSword.SpeedDecrease() - equipShield.SpeedDecrease();
     }
-    public String getName(){
-        return name;
-    }
     public double getMaxHP(){
         return maxHP;
     }
@@ -62,9 +59,6 @@ public class Fighter {
     }
     public double getCurrentSpeed(){
         return currentSpeed;
-    }
-    public int getLevel(){
-        return lvl;
     }
 }
 
